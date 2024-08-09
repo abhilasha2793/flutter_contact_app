@@ -1,4 +1,4 @@
-
+// A class for defining validators applied on multiple textfileds
 String? validatorPhoneNumber(String? value) {
   if (value == null || value.isEmpty) {
     return 'Please enter mobile number';

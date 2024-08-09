@@ -72,6 +72,7 @@ import 'package:contact_app/domain/blocs/contact_event.dart';
 import 'package:contact_app/domain/blocs/contact_state.dart';
 import 'package:contact_app/presentation/widgets/form_widget.dart';
 
+// A class for creating UI for AddUpdateContactScreen
 class AddUpdateContactScreen extends StatelessWidget {
   final bool update;
   final Contact? contactToUpdate;

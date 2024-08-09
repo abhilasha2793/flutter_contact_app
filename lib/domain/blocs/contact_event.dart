@@ -1,5 +1,5 @@
 import '../../data/model/contact.dart';
-
+// A class for managing contact events
 abstract class ContactEvent {}
 
 class InitEvent extends ContactEvent {}
@@ -20,23 +20,6 @@ class UpdateContactEvent extends ContactEvent {
   UpdateContactEvent({required this.contact});
 }
 
-class ToggleFavoriteContactEvent extends ContactEvent {
-  final Contact contact;
-
-  ToggleFavoriteContactEvent(this.contact);
-}
-
-class UpdateProfileImageEvent extends ContactEvent {
-  final Contact contact;
-  final String imagePath;
-
-  UpdateProfileImageEvent(this.contact, this.imagePath);
-}
-
-class TemporaryProfileImageEvent extends ContactEvent {
-  final String imagePath;
-  TemporaryProfileImageEvent(this.imagePath);
-}
 
 class DeleteContactEvent extends ContactEvent {
   final int contactId;

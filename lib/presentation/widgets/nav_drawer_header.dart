@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+// A class for creating UI for navigation drawer header
 class NavDrawerHeader extends StatelessWidget {
   final String title;
 
@@ -21,7 +23,7 @@ class NavDrawerHeader extends StatelessWidget {
           ),
           const CircleAvatar(
             radius: 30,
-            backgroundImage: AssetImage('assets/images/pr.png'),
+            backgroundImage: AssetImage('assets/images/person.png'),
           ),
         ],
       ),

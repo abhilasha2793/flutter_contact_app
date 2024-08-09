@@ -1,3 +1,4 @@
+import 'package:contact_app/routes/AppRoutes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,6 +9,7 @@ import '../../domain/blocs/contact_state.dart';
 import '../../utils/validators.dart';
 import 'profile_image_widget.dart';
 
+// A class for creating UI for contact form
 class FormWidget extends StatefulWidget {
   final bool update;
   final Contact? contactToUpdate;
@@ -157,7 +159,7 @@ class _FormWidgetState extends State<FormWidget> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  _deleteContact();
+                  _showDeleteConfirmationDialog(context, widget.contactToUpdate!);
                 },
                 child: const Text('Delete'),
               ),
@@ -190,5 +192,32 @@ class _FormWidgetState extends State<FormWidget> {
 
   void _deleteContact() {
     widget.onAddUpdateDelete(widget.contactToUpdate!, 'delete');
+  }
+
+  void _showDeleteConfirmationDialog(BuildContext context, Contact contact) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Delete Contact'),
+          content: const Text('Are you sure you want to delete this contact?'),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Cancel'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: const Text('Delete'),
+              onPressed: () {
+                _deleteContact();
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 }

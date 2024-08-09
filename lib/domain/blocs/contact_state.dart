@@ -1,5 +1,6 @@
 import '../../data/model/contact.dart';
 
+// A class for managing contact data
 sealed class ContactState {}
 
 class InitialState extends ContactState {}

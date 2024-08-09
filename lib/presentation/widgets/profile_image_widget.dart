@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-
+// A class for creating UI for profile image operation display, update
 class ProfileImageWidget extends StatelessWidget {
   final String? imageUrl;
   final Function(String) onImageUpdate;
@@ -40,8 +40,7 @@ class ProfileImageWidget extends StatelessWidget {
                   color: Colors.purple,
                 ),
                 padding: const EdgeInsets.all(8.0),
-                child: Icon(
-                  (imageUpdate || imageUrl!=null) ? Icons.edit : Icons.camera_alt,
+                child: Icon(imageUrl!=null ? Icons.edit : Icons.camera_alt,
                   color: Colors.white,
                   size: 20,
                 )),
