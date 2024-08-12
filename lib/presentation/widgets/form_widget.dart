@@ -136,9 +136,6 @@ class _FormWidgetState extends State<FormWidget> {
                     setState(() {
                       isFavorite = value;
                     });
-                    context.read<ContactBloc>().add(UpdateContactEvent(
-                        contact: widget.contactToUpdate!
-                            .copyWith(favorite: value)));
                   },
                 );
               })

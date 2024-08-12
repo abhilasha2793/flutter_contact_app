@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:contact_app/routes/AppRoutes.dart';
 import 'package:flutter/material.dart';
 import '../../data/model/contact.dart';
 import '../screens/add_update_contact.dart';
@@ -59,14 +60,18 @@ class ContactListItem extends StatelessWidget {
   }
 
   Future<void> _navigateToAddUpdateScreen(BuildContext context) async {
-    var result = Navigator.push(
+   /* var result = Navigator.pushReplacement(
       context,
       MaterialPageRoute(
           builder: (context) => AddUpdateContactScreen(
                 update: true,
                 contactToUpdate: contactItem,
               )),
-    );
+    );*/
+    var result = Navigator.pushReplacementNamed(context, AppRoutes.addUpdateContact,arguments: {
+      'update': true,
+      'contactToUpdate': contactItem
+    });
     if (result != null) {
       onUpdate();
     }
